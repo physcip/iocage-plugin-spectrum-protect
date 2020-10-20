@@ -5,6 +5,10 @@
 mkdir /compat/linux/etc/adsm
 mkdir /compat/linux/etc/tsm
 
+mkdir /compat/linux/proc/self
+touch /compat/linux/proc/self/mounts
+ln -s /compat/linux/etc/mtab /compat/linux/etc/fstab
+
 # Download IBM Spectrum Protect (TSM) client 8.1.10
 
 mkdir /compat/linux/tmp
@@ -36,7 +40,6 @@ echo 'dsmc_enable="YES"' >> /etc/rc.conf
 echo 'syslogd_enable="NO"' >> /etc/rc.conf
 echo 'cron_enable="NO"' >> /etc/rc.conf
 
-
 # cleanup
 
 pkg delete -y rpm4 curl
@@ -45,4 +48,3 @@ pkg clean -y
 
 rm -r /compat/linux/tmp 
 rm -r /usr/src
-

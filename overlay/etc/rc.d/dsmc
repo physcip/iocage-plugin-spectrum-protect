@@ -14,9 +14,23 @@ rcvar=dsmc_enable
 
 desc="Start scheduler for spectrum protect"
 
-start_cmd='/compat/linux/bin/bash -c "export DSM_DIR=/compat/linux/etc/tsm; /compat/linux/bin/dsmc sched &"'
+start_precmd=dsmc_precmd
 
-stop_cmd=':'
+command="/compat/linux/bin/${name}"
+
+command_args="sched"
+
+pidfile="/var/run/${name}.pid"
+
+stop_cmd='kill -9 `cat /var/run/${name}.pid`'
+
+
+dsmc_precmd()
+{
+	ln -s /compat/linux/opt/tivoli/tsm/client/ba/bin/EN_US /compat/linux/etc/tsm/EN_US
+	export DSM_DIR=/compat/linux/etc/tsm
+}
+
 
 load_rc_config $name
 
