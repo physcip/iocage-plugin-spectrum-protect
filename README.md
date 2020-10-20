@@ -22,7 +22,7 @@ IBM Spectrum Protect 8.1.10 will be installed in the jail.
 
 Set the mount points in bootstrap.sh so that
 - `/compat/linux/etc/adsm` contains the password store files, namely `TSM.KDB`, `TSM.sth` and `TSM.IDX`. 
-- `/compat/linux/etc/tsm` contains the preference files `dsm.sys`, `dsm.opt` (`dsmcert.idx`, `dsmcert.kdb` and `dsmcert.sth` if you're using SSL) and your localization folder (eg. EN_US). 
+- `/compat/linux/etc/tsm` contains the preference files `dsm.sys` and `dsm.opt` (also `dsmcert.idx`, `dsmcert.kdb` and `dsmcert.sth` if you're using SSL). 
 
 `DSM_DIR=/compat/linux/etc/tsm` will be set at scheduler start.
 
