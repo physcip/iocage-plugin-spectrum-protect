@@ -7,7 +7,7 @@ iocage fstab -a spectrum-protect '/mnt/home /home nullfs rw 0 0'
 iocage fstab -a spectrum-protect '/mnt/gruppen /gruppen nullfs rw 0 0'
 
 # Change these to point to the config files (see README.md)
-iocage fstab -a spectrum-protect '/mnt/freenasswap/iocage/templates/adsm /compat/linux/etc/adsm nullfs rw 0 0'
-iocage fstab -a spectrum-protect '/mnt/freenasswap/iocage/templates/tsm /compat/linux/etc/tsm nullfs rw 0 0'
+iocage fstab -a spectrum-protect '/mnt/system/tsm-config/adsm /compat/linux/etc/adsm nullfs rw 0 0'
+iocage fstab -a spectrum-protect '/mnt/system/tsm-config/tsm /compat/linux/etc/tsm nullfs rw 0 0'
 
 iocage start spectrum-protect
