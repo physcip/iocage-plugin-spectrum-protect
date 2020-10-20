@@ -53,7 +53,10 @@ echo 'cron_enable="NO"' >> /etc/rc.conf
 
 # cleanup
 
-rm -r /compat/linux/tmp 
-
 pkg delete -y rpm4 curl
 pkg autoremove -y
+pkg clean -y
+
+rm -r /compat/linux/tmp 
+rm -r /usr/src
+
