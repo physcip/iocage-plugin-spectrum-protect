@@ -37,10 +37,6 @@ rpm2cpio < /compat/linux/tmp/gskssl64-8.0.55.14.linux.x86_64.rpm  | cpio -id
 rpm2cpio < /compat/linux/tmp/TIVsm-API64.x86_64.rpm  | cpio -id
 rpm2cpio < /compat/linux/tmp/TIVsm-BA.x86_64.rpm  | cpio -id
 
-# cleanup
-
-rm -r /compat/linux/tmp 
-
 # Link missing libraries
 
 ln -s /compat/linux/opt/tivoli/tsm/client/api/bin64/libgpfs.so /compat/linux/usr/lib64/libgpfs.so
@@ -54,3 +50,10 @@ ln -s /compat/linux/usr/local/ibm/gsk8_64/lib64/libgsk8cms_64.so  /compat/linux/
 
 echo 'syslogd_enable="NO"' >> /etc/rc.conf
 echo 'cron_enable="NO"' >> /etc/rc.conf
+
+# cleanup
+
+rm -r /compat/linux/tmp 
+
+pkg delete -y rpm4 curl
+pkg autoremove -y
