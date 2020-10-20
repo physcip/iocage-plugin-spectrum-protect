@@ -1,5 +1,8 @@
 iocage fetch -P spectrum-protect.json
 
+iocage exec spectrum-protect 'mkdir -p /home'
+iocage exec spectrum-protect 'mkdir -p /gruppen'
+
 iocage stop spectrum-protect
 
 # Change these to point to the data you want to backup

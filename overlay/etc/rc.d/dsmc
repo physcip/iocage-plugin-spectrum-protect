@@ -4,15 +4,20 @@
 #
 
 # PROVIDE: dsmc
-# REQUIRE: DAEMON
-# KEYWORD: 
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
 
 . /etc/rc.subr
 
-name="dsmc"
+name=dsmc
+rcvar=dsmc_enable
+
 desc="Start scheduler for spectrum protect"
-start_cmd='/compat/linux/bin/bash -c "export DSM_DIR=/compat/linux/etc/tsm; compat/linux/bin/dsmc sched &"'
+
+start_cmd='/compat/linux/bin/bash -c "export DSM_DIR=/compat/linux/etc/tsm; /compat/linux/bin/dsmc sched &"'
+
 stop_cmd=':'
 
 load_rc_config $name
+
 run_rc_command "$1"

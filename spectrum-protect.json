@@ -1,7 +1,7 @@
 {
 	"name": "spectrum-protect",
 	"release": "11.3-RELEASE",
-	"artifact": "https://github.com/hejamu/iocage-plugin-spectrum-protect.git",
+	"artifact": ".",
 	"official": false,
 	"properties": 
 	{

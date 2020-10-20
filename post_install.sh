@@ -2,24 +2,8 @@
 
 # Create mountpoints
 
-# Change these to your DOMAINs
-mkdir /home
-mkdir /gruppen
-
-
 mkdir /compat/linux/etc/adsm
 mkdir /compat/linux/etc/tsm
-
-# Add mountpoints to fstab
-
-mkdir /compat/linux/proc/self
-touch /compat/linux/proc/self/mounts
-
-# Change these to your DOMAINs
-echo "/dev/home /home nullfs rw 0 0" > /compat/linux/etc/mtab
-echo "/dev/gruppen /gruppen nullfs rw 0 0" >> /compat/linux/etc/mtab
-
-ln -s /compat/linux/etc/mtab /compat/linux/etc/fstab
 
 # Download IBM Spectrum Protect (TSM) client 8.1.10
 
@@ -32,10 +16,10 @@ tar xvf 8*-TIV-TSMBAC-LinuxX86.tar
 
 cd /compat/linux
 
-rpm2cpio < /compat/linux/tmp/gskcrypt64-8.0.55.14.linux.x86_64.rpm | cpio -id
-rpm2cpio < /compat/linux/tmp/gskssl64-8.0.55.14.linux.x86_64.rpm  | cpio -id
-rpm2cpio < /compat/linux/tmp/TIVsm-API64.x86_64.rpm  | cpio -id
-rpm2cpio < /compat/linux/tmp/TIVsm-BA.x86_64.rpm  | cpio -id
+rpm2cpio < /compat/linux/tmp/gskcrypt64-8.0.55.14.linux.x86_64.rpm | cpio -id --quiet
+rpm2cpio < /compat/linux/tmp/gskssl64-8.0.55.14.linux.x86_64.rpm  | cpio -id --quiet
+rpm2cpio < /compat/linux/tmp/TIVsm-API64.x86_64.rpm  | cpio -id --quiet
+rpm2cpio < /compat/linux/tmp/TIVsm-BA.x86_64.rpm  | cpio -id --quiet
 
 # Link missing libraries
 
@@ -48,8 +32,10 @@ ln -s /compat/linux/usr/local/ibm/gsk8_64/lib64/libgsk8cms_64.so  /compat/linux/
 
 # Disabling unused system processes
 
+echo 'dsmc_enable="YES"' >> /etc/rc.conf
 echo 'syslogd_enable="NO"' >> /etc/rc.conf
 echo 'cron_enable="NO"' >> /etc/rc.conf
+
 
 # cleanup
 
