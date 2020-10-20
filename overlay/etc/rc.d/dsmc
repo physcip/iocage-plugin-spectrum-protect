@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# $FreeBSD: releng/11.3/etc/rc.d/dsmc 298514 2016-04-23 16:10:54Z lme $
+#
+
+# PROVIDE: dsmc
+# REQUIRE: DAEMON
+# KEYWORD: 
+
+. /etc/rc.subr
+
+name="dsmc"
+desc="Start scheduler for spectrum protect"
+start_cmd='/compat/linux/bin/bash -c "export DSM_DIR=/compat/linux/etc/tsm; compat/linux/bin/dsmc sched &"'
+stop_cmd=':'
+
+load_rc_config $name
+run_rc_command "$1"
