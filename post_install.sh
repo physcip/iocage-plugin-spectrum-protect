@@ -22,8 +22,8 @@ tar xvf 8*-TIV-TSMBAC-LinuxX86.tar
 
 cd /compat/linux
 
-rpm2cpio < /compat/linux/tmp/gskcrypt64-8.0.55.14.linux.x86_64.rpm | cpio -id --quiet
-rpm2cpio < /compat/linux/tmp/gskssl64-8.0.55.14.linux.x86_64.rpm  | cpio -id --quiet
+rpm2cpio < /compat/linux/tmp/gskcrypt64-8.0.55.29.linux.x86_64.rpm | cpio -id --quiet
+rpm2cpio < /compat/linux/tmp/gskssl64-8.0.55.29.linux.x86_64.rpm  | cpio -id --quiet
 rpm2cpio < /compat/linux/tmp/TIVsm-API64.x86_64.rpm  | cpio -id --quiet
 rpm2cpio < /compat/linux/tmp/TIVsm-BA.x86_64.rpm  | cpio -id --quiet
 
