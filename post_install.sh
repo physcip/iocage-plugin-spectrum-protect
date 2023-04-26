@@ -9,11 +9,13 @@ mkdir /compat/linux/proc/self
 touch /compat/linux/proc/self/mounts
 ln -s /compat/linux/etc/mtab /compat/linux/etc/fstab
 
-# Download IBM Spectrum Protect (TSM) client 8.1.10
+# Download IBM Spectrum Protect (TSM) client 8.1.17
 
 mkdir /compat/linux/tmp
 cd /compat/linux/tmp
-curl https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r1/Linux/LinuxX86/BA/v8110/8.1.10.0-TIV-TSMBAC-LinuxX86.tar --output 8.1.10.0-TIV-TSMBAC-LinuxX86.tar
+curl https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r1/Linux/LinuxX86/BA/v8117/8.1.17.0-TIV-TSMBAC-LinuxX86.tar --output 8.1.17.0-TIV-TSMBAC-LinuxX86.tar
+curl https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r1/Linux/LinuxX86/BA/v8117/8.1.17.0-TIV-TSMBAC-LinuxX86.tar.sha256sum.txt --output 8.1.17.0-TIV-TSMBAC-LinuxX86.tar.sha256sum.txt    
+cat 8.1.17.0-TIV-TSMBAC-LinuxX86.tar.sha256sum.txt | shasum -a 256 -c
 tar xvf 8*-TIV-TSMBAC-LinuxX86.tar
 
 # Install 
